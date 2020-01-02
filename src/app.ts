@@ -26,6 +26,7 @@ export class App {
         // cors middleware
         this.cors();
         //TODO: Rate Limiter
+        //TODO: Swagger Docs
         // http logger Morgan
         if (this.app.get('env') === 'production') {
             this.app.use(httpLogger('combined'));
