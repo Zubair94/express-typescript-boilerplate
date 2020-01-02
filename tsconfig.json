@@ -5,15 +5,16 @@
         "sourceMap": true,
         "target": "es6",
         "outDir": "dist",
-        "baseUrl": "src",
+        "baseUrl": ".",
         "moduleResolution": "node",
         "pretty": true,
         "paths": {
-            "@config/*": ["config/*"],
-            "@controllers/*": ["controllers/*"],
-            "@middlewares/*": ["middlewares/*"],
-            "@routes/*": ["routes/*"],
-            "@models/*": ["models/*"]
+            "@src/*": ["src/*"],
+            "@config/*": ["src/config/*"],
+            "@controllers/*": ["src/controllers/*"],
+            "@middlewares/*": ["src/middlewares/*"],
+            "@routes/*": ["src/routes/*"],
+            "@models/*": ["src/models/*"]
         }
     },
     "include": [

@@ -1,5 +1,5 @@
 import {Router} from "express";
 import { PublicController } from "@controllers/index";
 
-export const publicRoute = Router();
-publicRoute.post('/', PublicController.fetchData);
+export const publicRoutes = Router();
+publicRoutes.post('/', PublicController.fetchData);
