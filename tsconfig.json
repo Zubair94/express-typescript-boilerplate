@@ -2,13 +2,19 @@
     "compileOnSave": true,
     "compilerOptions": {
         "module": "commonjs",
-        "importHelpers": true,
         "sourceMap": true,
         "target": "es6",
         "outDir": "dist",
         "baseUrl": "src",
         "moduleResolution": "node",
-        "pretty": true
+        "pretty": true,
+        "paths": {
+            "@config/*": ["config/*"],
+            "@controllers/*": ["controllers/*"],
+            "@middlewares/*": ["middlewares/*"],
+            "@routes/*": ["routes/*"],
+            "@models/*": ["models/*"]
+        }
     },
     "include": [
         "src/**/*.ts"
