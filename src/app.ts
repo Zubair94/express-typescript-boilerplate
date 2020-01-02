@@ -45,7 +45,7 @@ export class App {
             let origin = req.headers["access-control-allow-origin"];
             // let remoteIP = req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.socket.remoteAddress;
             if (allowedOrigins.indexOf(origin) > -1) {
-                res.header('access-control-Allow-prigin', origin);
+                res.header('access-control-allow-origin', origin);
             }
             res.header('access-control-allow-headers', 'origin, x-requested-with, content-type, accept, authorization');
             if (req.method === 'OPTIONS') {
