@@ -5,11 +5,12 @@
   "main": "server.js",
   "scripts": {
     "build": "tsc",
-    "package": "webpack --config webpack.server.config.js --progress --colors",
+    "compile": "webpack --config webpack.server.config.js --progress --colors",
     "dev": "ts-node src/server.ts",
     "dev:nodemon": "nodemon src/server.ts",
-    "start": "tsc && node dist/server.js",
-    "start:nodemon": "tsc && nodemon dist/server.js"
+    "start:dev": "tsc && node dist/server.js",
+    "start:nodemon": "tsc && nodemon dist/server.js",
+    "start:production": "npm run compile && NODE_ENV=production node dist/server.js"
   },
   "repository": {
     "type": "git",
@@ -43,7 +44,6 @@
     "ts-node": "^8.5.4",
     "typescript": "^3.7.4",
     "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.10.1"
+    "webpack-cli": "^3.3.10"
   }
 }

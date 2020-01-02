@@ -42,14 +42,14 @@ export class App {
     private cors() {
         this.app.use((req: Request, res: Response, next: NextFunction) => {
             let allowedOrigins = ['http://localhost:4200', 'http://192.168.1.101:4200'];
-            let origin = req.headers.origin.toString();
-            let remoteIP = req.headers['X-Forwarded-For'] || req.connection.remoteAddress || req.socket.remoteAddress;
+            let origin = req.headers["access-control-allow-origin"];
+            // let remoteIP = req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.socket.remoteAddress;
             if (allowedOrigins.indexOf(origin) > -1) {
-                res.header('Access-Control-Allow-Origin', origin);
+                res.header('access-control-Allow-prigin', origin);
             }
-            res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization, ttimesecret');
+            res.header('access-control-allow-headers', 'origin, x-requested-with, content-type, accept, authorization');
             if (req.method === 'OPTIONS') {
-                res.header('Access-Control-Allow-Methods', 'PUT, POST, DELETE, PATCH, GET');
+                res.header('access-control-allow-methods', 'PUT, POST, DELETE, PATCH, GET');
                 return res.status(200).json({});
             }
             next();
