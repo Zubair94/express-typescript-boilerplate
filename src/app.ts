@@ -1,6 +1,6 @@
 import * as express from "express";
 import { Request, Response, NextFunction, Application} from "express";
-import { publicRoutes } from "@routes/index"
+import { publicRoutes } from "./routes"
 class App {
     app: Application;
     constructor() {
