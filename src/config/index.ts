@@ -1,1 +1,2 @@
-export * from "./environment"
+export * from './environment.config';
+export * from './database.config';

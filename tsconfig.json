@@ -7,19 +7,18 @@
         "outDir": "dist",
         "baseUrl": ".",
         "moduleResolution": "node",
-        "pretty": true,
-        "paths": {
-            "@src/*": ["src/*"]
-        }
+        "pretty": true
     },
     "include": [
         "src/**/*.ts"
     ],
     "typeRoots": [
+        "src/typings",
         "node_modules/@types"
     ],
-    "types": ["node", "express", "morgan", "helmet"],
+    "types": ["node", "express", "morgan", "helmet", "nodemailer", "mongoose", "jsonwebtoken", "bcrypt"],
     "exclude": [
-        "node_modules"
+        "node_modules",
+        "dist"
     ]
 }

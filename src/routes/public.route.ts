@@ -1,5 +1,6 @@
-import {Router} from "express";
+import { Router } from "express";
 import { PublicController } from "../controllers";
+import { requestHandler } from "../utils";
 
 export const publicRoutes = Router();
-publicRoutes.get('/', PublicController.fetchData);
+publicRoutes.get('/', requestHandler(PublicController.fetchData));

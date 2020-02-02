@@ -1,5 +1,5 @@
 const path = require('path');
-const webpack = require('webpack');
+const nodeExternals = require('webpack-node-externals');
 const DotEnv = require('dotenv-webpack');
 module.exports = {
   mode: 'none',
@@ -7,6 +7,9 @@ module.exports = {
     server: './src/server.ts'
   },
   target: 'node',
+  externals: [
+      nodeExternals()
+  ],
   resolve: { extensions: ['.js', '.ts'] },
   optimization: {
     minimize: false
@@ -23,12 +26,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new DotEnv(),
-    new webpack.ContextReplacementPlugin(
-        // fixes WARNING Critical dependency: the request of a dependency is an expression
-        /(.+)?express(\\|\/)(.+)?/,
-        path.join(__dirname, 'src'),
-        {}
-    )  
+    new DotEnv()
   ]
 };

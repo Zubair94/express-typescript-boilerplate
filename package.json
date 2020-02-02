@@ -5,12 +5,10 @@
   "main": "server.js",
   "scripts": {
     "build": "tsc",
-    "compile": "webpack --config webpack.server.config.js --progress --colors",
-    "dev": "ts-node src/server.ts",
-    "dev:nodemon": "nodemon src/server.ts",
-    "start:dev": "tsc && node dist/server.js",
-    "start:nodemon": "tsc && nodemon dist/server.js",
-    "start:production": "npm run compile && NODE_ENV=production node dist/server.js"
+    "compile": "rm -rf dist && mkdir dist && webpack --config webpack.server.config.js --progress --colors && cp package.json dist/package.json",
+    "dev": "ts-node --files src/server.ts",
+    "dev:nodemon": "nodemon --watch 'src/**/*.ts' --exec 'ts-node --files' src/server.ts",
+    "start:dev": "tsc && node dist/server.js"
   },
   "repository": {
     "type": "git",
@@ -28,22 +26,31 @@
   },
   "homepage": "https://gitlab.com/Zubair94/express-typescript-boilerplate#readme",
   "dependencies": {
+    "bcrypt": "^3.0.7",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "helmet": "^3.21.2",
-    "morgan": "^1.9.1"
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.8.7",
+    "morgan": "^1.9.1",
+    "nodemailer": "^6.4.2"
   },
   "devDependencies": {
+    "@types/bcrypt": "^3.0.0",
     "@types/express": "^4.17.2",
     "@types/helmet": "^0.0.45",
+    "@types/jsonwebtoken": "^8.3.5",
+    "@types/mongoose": "^5.5.41",
     "@types/morgan": "^1.7.37",
     "@types/node": "^13.1.2",
+    "@types/nodemailer": "^6.4.0",
     "dotenv-webpack": "^1.7.0",
     "nodemon": "^2.0.2",
     "ts-loader": "^6.2.1",
     "ts-node": "^8.5.4",
     "typescript": "^3.7.4",
     "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10"
+    "webpack-cli": "^3.3.10",
+    "webpack-node-externals": "^1.7.2"
   }
 }
